@@ -48,4 +48,22 @@ const showPerson = person => {
     info.textContent = item.text;    
 }
 
-window.addEventListener('DOMContentLoaded', showPerson(currentItem))
+window.addEventListener('DOMContentLoaded', showPerson(currentItem));
+nextBtn.addEventListener('click', ()=>{
+    currentItem++
+    if(currentItem > reviews.length-1){
+        currentItem = 0;
+    }
+    showPerson(currentItem);
+})
+prevBtn.addEventListener('click', ()=>{
+    currentItem--
+    if(currentItem < 0){
+        currentItem = reviews.length-1;
+    }
+    showPerson(currentItem);
+})
+randomBtn.addEventListener('click', ()=>{
+    currentItem = Math.floor(Math.random() * reviews.length);
+    showPerson(currentItem);
+})
