@@ -40,30 +40,38 @@ const randomBtn = document.querySelector('.random-btn');
 
 let currentItem = 0;
 
-const showPerson = person => {
-    const item = reviews[person];
-    img.src = item.img;
-    author.textContent = item.name;
-    job.textContent = item.job;
-    info.textContent = item.text;    
+const showPerson = (person, e) => {
+  //e.target.body.style.backgroundColor = 'red';
+  const item = reviews[person];
+  img.src = item.img;
+  author.textContent = item.name;
+  job.textContent = item.job;
+  info.textContent = item.text;    
+  info.style.color = 'blue';
 }
 
-window.addEventListener('DOMContentLoaded', showPerson(currentItem));
-nextBtn.addEventListener('click', ()=>{
+window.addEventListener('DOMContentLoaded', e => { 
+  showPerson(currentItem, e)});
+
+nextBtn.addEventListener('click', (e)=>{
+  e.preventDefault()
+  console.log(e.target);
     currentItem++
     if(currentItem > reviews.length-1){
         currentItem = 0;
     }
     showPerson(currentItem);
 })
-prevBtn.addEventListener('click', ()=>{
+prevBtn.addEventListener('click', (e)=>{
+  console.log(e.currentTarget);
     currentItem--
     if(currentItem < 0){
         currentItem = reviews.length-1;
     }
     showPerson(currentItem);
 })
-randomBtn.addEventListener('click', ()=>{
+randomBtn.addEventListener('click', (e)=>{
+  console.log(e.currentTarget);
     currentItem = Math.floor(Math.random() * reviews.length);
     showPerson(currentItem);
 })
