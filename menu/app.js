@@ -73,6 +73,8 @@ const menu = [
     },
   ];
 
+  //see videos for dynamic creation of category buttons
+
   const sectionCenter = document.querySelector('.section-center');
 
   const filterBtns = document.querySelectorAll('.filter-btn');
