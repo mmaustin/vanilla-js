@@ -20,3 +20,20 @@ btns.forEach(btn => {
         val.textContent = count; 
     })
 })
+// const o = {
+//     name: 'me',
+//     time: 'now',
+//     obj: {
+//     name: 'mac',
+//     getThis(){
+//         return this;
+//     }
+// }}
+// // console.log(obj.getThis());
+
+// // const globalObject = this;
+
+// // const arr =() =>{
+// //     return obj.getThis()
+// // }
+// console.log(o.obj.getThis());
