@@ -61,5 +61,8 @@ function addToLocalStorage(id, value){
 }
 
 function setBackToDefault(){
-    console.log('set to default');
+    grocery.value = '';
+    editFlag = false;
+    editID = '';
+    submitBtn.textContent = 'submit';
 }
