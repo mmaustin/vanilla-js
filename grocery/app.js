@@ -27,13 +27,19 @@ function addItem(e) {
         element.setAttributeNode(attr);
         element.innerHTML = `<p class="title">${value}</p>
         <div class="btn-container">
-            <button type="button" class="edit-button">
+            <button type="button" class="edit-btn">
                 <i class="fas fa-edit"></i>
             </button>
-            <button type="button" class="delete-button">
+            <button type="button" class="delete-btn">
                 <i class="fas fa-trash"></i>
             </button>
         </div>`;
+
+        const deleteBtn = element.querySelector('.delete-btn');
+        const editBtn = element.querySelector('.edit-btn');
+        deleteBtn.addEventListener('click', deleteItem);
+        editBtn.addEventListener('click', editItem);
+
         list.appendChild(element);
 
         displayAlert('added item to list', 'success');
@@ -79,4 +85,12 @@ function clearItems(){
     displayAlert('empty list', 'success');
     setBackToDefault();
     //localStorage.removeItem('list);
+}
+
+function editItem(){
+    console.log('edit item');
+}
+
+function deleteItem(){
+    console.log('delete item');
 }
