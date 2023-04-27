@@ -10,7 +10,43 @@ let editElement;
 let editFlag = false;
 let editID = '';
 
-const displayAlert = (text, action) => {
+form.addEventListener('submit', addItem);
+
+
+function addItem(e) {
+    e.preventDefault();
+    const value = grocery.value;
+    const id = new Date().getTime().toString();
+    
+    if(value && !editFlag){
+        const element = document.createElement('artilce');
+        element.classList.add('grocery-item');
+        const attr = document.createAttribute('data-id');
+        attr.value = id;
+        element.setAttributeNode(attr);
+        element.innerHTML = `<p class="title">${value}</p>
+        <div class="btn-container">
+            <button type="button" class="edit-button">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button type="button" class="delete-button">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>`;
+        list.appendChild(element);
+
+        displayAlert('added item to list', 'success');
+        container.classList.add('show-container');
+        addToLocalStorage(id, value);
+        setBackToDefault()
+    } else if(value && editFlag){
+        console.log('editing');
+    } else {
+        displayAlert('please enter a value', 'danger');
+    }
+}
+
+function displayAlert(text, action){
     alert.textContent = text;
     alert.classList.add(`alert-${action}`)
 
@@ -20,18 +56,10 @@ const displayAlert = (text, action) => {
     }, 2000)
 }
 
-const addItem = e => {
-    e.preventDefault();
-    const value = grocery.value;
-    const id = new Date().getTime().toString();
-
-    if(value && !editFlag){
-        displayAlert('added item to list', 'success');
-    } else if(value && editFlag){
-        console.log('editing');
-    } else {
-        displayAlert('please enter a value', 'danger');
-    }
+function addToLocalStorage(id, value){
+    console.log('local storage');
 }
 
-form.addEventListener('submit', addItem);
+function setBackToDefault(){
+    console.log('set to default');
+}
