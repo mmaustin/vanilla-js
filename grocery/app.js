@@ -73,9 +73,6 @@ function addToLocalStorage(id, value){
     localStorage.setItem('list', JSON.stringify(items));
 }
 
-function removeFromLocalStorage(id){
-
-}
 
 function getLocalStorage(){
     return localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : [];
@@ -104,7 +101,7 @@ function clearItems(){
 function editItem(e){
     const element = e.currentTarget.parentElement.parentElement;
     editElement = e.currentTarget.parentElement.previousElementSibling;
-
+    
     grocery.value = editElement.innerHTML;
     editFlag = true;
     editID = element.dataset.id;
@@ -120,9 +117,14 @@ function deleteItem(e){
     }
     displayAlert('item removed', 'success');
     setBackToDefault();
-    //removeFromLocalStorage(id);
+    removeFromLocalStorage(id);
 }
 
+function removeFromLocalStorage(id){
+ let items = getLocalStorage();
+ items = items.filter(item => item.id !== id)
+ localStorage.setItem('list', JSON.stringify(items));
+}
 
 function editLocalStorage(id, value){
     console.log('edit local storage');
