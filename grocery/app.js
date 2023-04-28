@@ -68,10 +68,17 @@ function displayAlert(text, action){
 
 function addToLocalStorage(id, value){
     const grocery = {id, value};
-    let items = localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : [];
-    console.log(items);
+    let items = getLocalStorage()
     items.push(grocery);
     localStorage.setItem('list', JSON.stringify(items));
+}
+
+function removeFromLocalStorage(id){
+
+}
+
+function getLocalStorage(){
+    return localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : [];
 }
 
 function setBackToDefault(){
@@ -116,9 +123,6 @@ function deleteItem(e){
     //removeFromLocalStorage(id);
 }
 
-function removeFromLocalStorage(id){
-
-}
 
 function editLocalStorage(id, value){
     console.log('edit local storage');
