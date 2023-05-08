@@ -8,25 +8,25 @@ class Counter {
         this.increaseBtn = element.querySelector('.increase');
         this.valueDom = element.querySelector('.value');
         this.valueDom.textContent = this.value;
-        this.increase = this.increase.bind(this);
-        this.decrease = this.decrease.bind(this);
-        this.reset = this.reset.bind(this);
+       // this.increase = this.increase.bind(this);
+        //this.decrease = this.decrease.bind(this);
+        //this.reset = this.reset.bind(this);
         this.increaseBtn.addEventListener('click', this.increase);
         this.decreaseBtn.addEventListener('click', this.decrease);
         this.resetBtn.addEventListener('click', this.reset);
     }
 
-    increase(){
+    increase = () => {
         this.value++;
         this.valueDom.textContent = this.value;
     }
 
-    decrease(){
+    decrease = () => {
         this.value--;
         this.valueDom.textContent = this.value;
     }
 
-    reset(){
+    reset = () => {
         this.value = 0
         this.valueDom.textContent = this.value;
     }
