@@ -2,7 +2,8 @@ let count = 0;
 
 let btns = document.querySelectorAll('.btn');
 let val = document.querySelector('#value');
-//console.log(Array.from(btns));
+let self = document.getElementById('self')
+console.log(self);
 
 btns.forEach(btn => {
     btn.addEventListener('click', (e) => {
