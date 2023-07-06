@@ -23,5 +23,9 @@ let productID;
 
 // show product when page loads
 window.addEventListener('DOMContentLoaded', async ()=> {
+  const urlID = window.location.search;
+  const response = await fetch(`${singleProductUrl}${urlID}`);
+  const {fields: {description}} = await response.json();
+  console.log(description);
   loading.style.display = 'none';
 })
