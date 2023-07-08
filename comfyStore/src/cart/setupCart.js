@@ -21,7 +21,13 @@ export const addToCart = (id) => {
   let item = cart.find(cartItem => cartItem.id === id);
   if(!item){
     let product = findProduct(id);
-    console.log(product);
+    product = {...product, amount: 1};
+    cart = [...cart, product];
+    
+    addToCartDOM(product);
+    console.log(cart);
+  } else {
+    console.log('already in the cart');
   }
 
   openCart();
