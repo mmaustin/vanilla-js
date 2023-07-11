@@ -25,7 +25,6 @@ export const addToCart = (id) => {
     cart = [...cart, product];
     
     addToCartDOM(product);
-    console.log(cart);
   } else {
     console.log('already in the cart');
   }
