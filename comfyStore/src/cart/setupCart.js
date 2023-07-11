@@ -12,7 +12,7 @@ import addToCartDOM from './addToCartDOM.js';
 
 const cartItemCountDOM = getElement('.cart-item-count');
 const cartItemsDOM = getElement('.cart-items');
-const cartTotalDOM = getStorageItem('.cart-total');
+const cartTotalDOM = getElement('.cart-total');
 
 let cart = getStorageItem('cart');
 
@@ -26,13 +26,30 @@ export const addToCart = (id) => {
     
     addToCartDOM(product);
   } else {
-    console.log('already in the cart');
-  }
 
+  }
+  
+  displayCartItemCount();
+  displayCartTotal();
+  setStorageItem('cart', cart);
   openCart();
 };
 
+function displayCartItemCount(){
+  const amount = cart.reduce((total, cartItem) => {
+    return total += cartItem.amount;
+  }, 0);
+  cartItemCountDOM.textContent = amount;
+}
+
+function displayCartTotal(){
+  let total = cart.reduce((total, cartItem) => {
+    return total += cartItem.price * cartItem.amount;
+  },0);
+  cartTotalDOM.textContent = `Total : ${formatPrice(total)}`
+}
+
 const init = () => {
-  console.log(cart);
+  //console.log(cart);
 }
 init();
