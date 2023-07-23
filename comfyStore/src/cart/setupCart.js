@@ -41,7 +41,7 @@ export const addToCart = (id) => {
 function displayCartItemCount(){
   console.log(cart);
   const amount = cart.reduce((total, cartItem) => {
-    return total += cartItem.amount;
+    return (total += cartItem.amount);
   }, 0);
   cartItemCountDOM.textContent = amount;
   //console.log(amount);
@@ -67,6 +67,7 @@ function increaseAmount(id) {
       newAmount = cartItem.amount + 1;
       cartItem = {...cartItem, amount: newAmount};
     }
+    return cartItem;
   });
   return newAmount;
 }
