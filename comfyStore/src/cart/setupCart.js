@@ -49,7 +49,20 @@ function displayCartTotal(){
   cartTotalDOM.textContent = `Total : ${formatPrice(total)}`
 }
 
+function displayCartItemsDom() {
+  cart.forEach(cartItem => {
+    addToCartDOM(cartItem);
+  })  
+}
+
+function setupCartFunctionality() {
+
+}
+
 const init = () => {
-  //console.log(cart);
+  displayCartItemCount();
+  displayCartTotal();
+  displayCartItemsDom();
+  setupCartFunctionality();
 }
 init();
