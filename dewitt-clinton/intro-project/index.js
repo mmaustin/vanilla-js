@@ -1,8 +1,14 @@
 
 
-let input = document.querySelector('.first-input');
+let listItem = document.querySelector('.first-input');
 let button = document.querySelector('button');
+let container = document.querySelector('.attach');
 
 button.addEventListener('click', (e) => {
-  console.log(e.target, input.value);
+  const para = document.createElement('p');
+  para.innerHTML = listItem.value;
+  container.appendChild(para);
+  listItem.value = '';
+
+
 })
