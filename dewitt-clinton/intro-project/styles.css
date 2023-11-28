@@ -4,3 +4,12 @@ body, .input-container {
   align-items: center;
   flex-direction: column;
 }
+
+.para-styles {
+  color: blue;
+  background-color: bisque;
+  font-weight: bold;
+  font-style: italic;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-transform: uppercase;
+}
