@@ -12,8 +12,17 @@ button.addEventListener('click', function () {
   listItem.value = '';
 
   para.addEventListener('click', function () {
-    para.style.color = 'red';
-    para.style.textDecoration = 'line-through';
+    if (para.style.color === 'red') {
+      para.style.color = 'blue';
+    } else {
+      para.style.color = 'red';
+    }
+
+    if (para.style.textDecoration === 'line-through') {
+      para.style.textDecoration = 'none';
+    } else {
+      para.style.textDecoration = 'line-through'
+    }
   });
 
   para.addEventListener('dblclick', function () {
