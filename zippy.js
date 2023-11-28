@@ -9,3 +9,6 @@
 //   }
 // }
 // getProducts();
+// const price = 75000/100+'.00'
+// console.log(typeof price);
+
