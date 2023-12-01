@@ -1,0 +1,24 @@
+Data Types
+  1) String [Methods: push, pop, shift, unshift, slice]
+  2) Number 
+  3) Undefined
+  4) Null
+  5) Boolean
+  6) BigInt
+  7) Symbol
+  8) Object
+     --Array [Methods: same ones as string, forEach]
+
+Variables
+  1) let
+  2) const
+  3) var
+
+Functions
+  1) Declaration
+  2) Scope
+  3) Arguments/parameters
+  4) Calling
+
+Conditional Language
+  if/else if/ else

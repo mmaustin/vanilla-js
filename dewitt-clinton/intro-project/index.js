@@ -4,7 +4,9 @@ let listItem = document.querySelector('.first-input');
 let button = document.querySelector('button');
 let container = document.querySelector('.attach');
 
-button.addEventListener('click', function () {
+
+button.addEventListener('click', function (e) {
+  // console.log(window);
   let para = document.createElement('p');
   para.innerHTML = listItem.value;
   para.classList.add('para-styles');

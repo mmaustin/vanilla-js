@@ -12,3 +12,9 @@
 // const price = 75000/100+'.00'
 // console.log(typeof price);
 
+//Strings
+let a = "apple";
+console.log(a.length + 9);
+console.log("red" + ' ' + a);
+console.log(a.slice(0, 3));
+console.log((`I am an ${a}`));
