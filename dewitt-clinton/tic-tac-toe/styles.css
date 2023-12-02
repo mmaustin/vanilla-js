@@ -50,6 +50,16 @@ header > h1 {
   right: -25px;
 }
 
+.result {
+  font-size: 40px;
+  color: white;
+}
+
+.result > p {
+  text-align: center;
+  font-weight: bold;
+}
+
 .choices {
   margin: 50px 0;
   text-align: center;
