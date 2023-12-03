@@ -16,13 +16,23 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
+function win(winner) {
+  if (winner === 'User') {
+    let newUserScore = parseInt(userScore.innerHTML) + 1;
+    userScore.innerHTML = newUserScore.toString();
+  } else if (winner === 'Computer') {
+    let newCompScore = parseInt(compScore.innerHTML) + 1;
+    compScore.innerHTML = newCompScore.toString();
+  }
+}
+
 function game(userChoice) {
   const computerChoice = getComputerChoice();
   if (userChoice + computerChoice === 'rs' || userChoice + computerChoice === 'pr' || userChoice + computerChoice === 'sp') {
-    console.log('User Wins');
+    win('User');
   }
   if (userChoice + computerChoice === 'rp' || userChoice + computerChoice === 'ps' || userChoice + computerChoice === 'sr') {
-    console.log('Computer Wins');
+    win('Computer');
   }
   if (userChoice + computerChoice === 'rr' || userChoice + computerChoice === 'pp' || userChoice + computerChoice === 'ss') {
     console.log('It\'s a draw');
