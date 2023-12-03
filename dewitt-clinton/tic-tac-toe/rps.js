@@ -26,7 +26,7 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random() * choices.length)];
 };
 
-function win(winner, combo) {
+function roundResult(winner, combo) {
   if (winner === 'User') {
     let newUserScore = parseInt(userScore.innerHTML) + 1;
     userScore.innerHTML = newUserScore.toString();
@@ -37,20 +37,23 @@ function win(winner, combo) {
     compScore.innerHTML = newCompScore.toString();
     result.innerHTML = combinations[combo];
   } else {
-    result.innerHTML = 'That Round Was A Draw.'
+    result.innerHTML = 'That Round Was A Draw.';
+    setTimeout(() => {
+      result.innerHTML = 'Let\'s Play!'
+    }, 1500);
   }
 };
 
 function game(userChoice) {
   const computerChoice = getComputerChoice();
   if (userChoice + computerChoice === 'rs' || userChoice + computerChoice === 'pr' || userChoice + computerChoice === 'sp') {
-    win('User', userChoice + computerChoice);
+    roundResult('User', userChoice + computerChoice);
   }
   if (userChoice + computerChoice === 'rp' || userChoice + computerChoice === 'ps' || userChoice + computerChoice === 'sr') {
-    win('Computer', userChoice + computerChoice);
+    roundResult('Computer', userChoice + computerChoice);
   }
   if (userChoice + computerChoice === 'rr' || userChoice + computerChoice === 'pp' || userChoice + computerChoice === 'ss') {
-    win('Draw');
+    roundResult('Draw');
   }
 };
 
