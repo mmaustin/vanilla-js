@@ -11,33 +11,48 @@ const rock = document.getElementById('r');
 const paper = document.getElementById('p');
 const scissors = document.getElementById('s');
 
+
+const combinations = {
+  "pr": "Paper Covers Rock. You Win!",
+  "rs": "Rock Crushes Scissors. You Win!",
+  "sp": "Scissors Cut Paper. You Win!",
+  "rp": "Paper Covers Rock. Computer Wins!",
+  "ps": "Scissors Cut Paper. Computer Wins!",
+  "sr": "Rock Crushes Scissors. Computer Wins!"
+};
+
 function getComputerChoice() {
   const choices = ['r', 'p', 's'];
   return choices[Math.floor(Math.random() * choices.length)];
-}
+};
 
-function win(winner) {
+function win(winner, combo) {
   if (winner === 'User') {
     let newUserScore = parseInt(userScore.innerHTML) + 1;
     userScore.innerHTML = newUserScore.toString();
+    result.innerHTML = combinations[combo];
+
   } else if (winner === 'Computer') {
     let newCompScore = parseInt(compScore.innerHTML) + 1;
     compScore.innerHTML = newCompScore.toString();
+    result.innerHTML = combinations[combo];
+  } else {
+    result.innerHTML = 'That Round Was A Draw.'
   }
-}
+};
 
 function game(userChoice) {
   const computerChoice = getComputerChoice();
   if (userChoice + computerChoice === 'rs' || userChoice + computerChoice === 'pr' || userChoice + computerChoice === 'sp') {
-    win('User');
+    win('User', userChoice + computerChoice);
   }
   if (userChoice + computerChoice === 'rp' || userChoice + computerChoice === 'ps' || userChoice + computerChoice === 'sr') {
-    win('Computer');
+    win('Computer', userChoice + computerChoice);
   }
   if (userChoice + computerChoice === 'rr' || userChoice + computerChoice === 'pp' || userChoice + computerChoice === 'ss') {
-    console.log('It\'s a draw');
+    win('Draw');
   }
-}
+};
 
 // function main() {
 rock.addEventListener('click', function () {

@@ -53,11 +53,11 @@ header > h1 {
 .result {
   font-size: 40px;
   color: white;
+  text-align: center;
+  font-weight: bold;
 }
 
 .result > p {
-  text-align: center;
-  font-weight: bold;
 }
 
 .choices {
