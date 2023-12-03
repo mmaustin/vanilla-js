@@ -13,27 +13,38 @@ const scissors = document.getElementById('s');
 
 function getComputerChoice() {
   const choices = ['r', 'p', 's'];
-  console.log(choices[Math.floor(Math.random() * choices.length)]);
+  return choices[Math.floor(Math.random() * choices.length)];
 }
 
 function game(userChoice) {
-  console.log(userChoice);
+  const computerChoice = getComputerChoice();
+  if (userChoice + computerChoice === 'rs' || userChoice + computerChoice === 'pr' || userChoice + computerChoice === 'sp') {
+    console.log('User Wins');
+  }
+  if (userChoice + computerChoice === 'rp' || userChoice + computerChoice === 'ps' || userChoice + computerChoice === 'sr') {
+    console.log('Computer Wins');
+  }
+  if (userChoice + computerChoice === 'rr' || userChoice + computerChoice === 'pp' || userChoice + computerChoice === 'ss') {
+    console.log('It\'s a draw');
+  }
 }
 
-function main() {
-  rock.addEventListener('click', function () {
-    game('r');
-    getComputerChoice();
-  });
+// function main() {
+rock.addEventListener('click', function () {
+  game('r');
+});
 
-  paper.addEventListener('click', function () {
-    game('p');
-    getComputerChoice();
-  });
+paper.addEventListener('click', function () {
+  game('p');
+});
 
-  scissors.addEventListener('click', function () {
-    game('s');
-    getComputerChoice();
-  });
-};
-main();
+scissors.addEventListener('click', function () {
+  game('s');
+});
+// };
+// main();
+
+
+
+
+
