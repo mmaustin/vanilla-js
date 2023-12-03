@@ -21,6 +21,30 @@ const combinations = {
   "sr": "Rock Crushes Scissors. Computer Wins!"
 };
 
+function gameWinner(score, player) {
+  if (score === '5' && player === 'User') {
+    result.style.backgroundColor = 'green';
+    result.innerHTML = 'You Beat The Computer!';
+    setTimeout(() => {
+      userScore.innerHTML = '0';
+      compScore.innerHTML = '0';
+      result.innerHTML = 'Let\'s Play!';
+      result.style.backgroundColor = '#24272e';
+    }, 5000);
+  };
+
+  if (score === '5' && player === 'Computer') {
+    result.style.backgroundColor = 'red';
+    result.innerHTML = 'The Computer Stomped You!';
+    setTimeout(() => {
+      userScore.innerHTML = '0';
+      compScore.innerHTML = '0';
+      result.innerHTML = 'Let\'s Play!';
+      result.style.backgroundColor = '#24272e';
+    }, 5000);
+  };
+};
+
 function getComputerChoice() {
   const choices = ['r', 'p', 's'];
   return choices[Math.floor(Math.random() * choices.length)];
@@ -31,11 +55,13 @@ function roundResult(winner, combo) {
     let newUserScore = parseInt(userScore.innerHTML) + 1;
     userScore.innerHTML = newUserScore.toString();
     result.innerHTML = combinations[combo];
+    gameWinner(userScore.innerHTML, 'User');
 
   } else if (winner === 'Computer') {
     let newCompScore = parseInt(compScore.innerHTML) + 1;
     compScore.innerHTML = newCompScore.toString();
     result.innerHTML = combinations[combo];
+    gameWinner(compScore.innerHTML, 'Computer');
   } else {
     result.innerHTML = 'That Round Was A Draw.';
     setTimeout(() => {
