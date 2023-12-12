@@ -1,24 +1,21 @@
 
-
-const userScoreDisplay = 0;
-const compScoreDisplay = 0;
-
-const userScore = document.getElementById("user-score");
-const compScore = document.getElementById("computer-score");
-const scoreBoard = document.querySelector('.score-board');
+let userScore = document.getElementById("user-score");
+let compScore = document.getElementById("computer-score");
+//const scoreBoard = document.querySelector('.score-board');
 const result = document.querySelector('.result');
 const rock = document.getElementById('r');
 const paper = document.getElementById('p');
 const scissors = document.getElementById('s');
 
+//console.log(typeof +userScore.innerHTML);
 
 const combinations = {
-  "pr": "Paper Covers Rock. You Win!",
-  "rs": "Rock Crushes Scissors. You Win!",
-  "sp": "Scissors Cut Paper. You Win!",
-  "rp": "Paper Covers Rock. Computer Wins!",
-  "ps": "Scissors Cut Paper. Computer Wins!",
-  "sr": "Rock Crushes Scissors. Computer Wins!"
+  "pr": "Paper Covers Rock. You Win The Round!",
+  "rs": "Rock Crushes Scissors. You Win The Round!",
+  "sp": "Scissors Cut Paper. You Win The Round!",
+  "rp": "Paper Covers Rock. Computer Wins The Round!",
+  "ps": "Scissors Cut Paper. Computer Wins The Round!",
+  "sr": "Rock Crushes Scissors. Computer Wins The Round!"
 };
 
 function gameWinner(score, player) {
@@ -52,38 +49,43 @@ function getComputerChoice() {
 
 function roundResult(winner, combo) {
   if (winner === 'User') {
-    let newUserScore = parseInt(userScore.innerHTML) + 1;
-    userScore.innerHTML = newUserScore.toString();
+    //let newUserScore = parseInt(userScore.innerHTML) + 1;
+    //userScore.innerHTML = newUserScore.toStriing();
+    userScore.innerHTML++
     result.innerHTML = combinations[combo];
     gameWinner(userScore.innerHTML, 'User');
 
   } else if (winner === 'Computer') {
-    let newCompScore = parseInt(compScore.innerHTML) + 1;
-    compScore.innerHTML = newCompScore.toString();
+    //let newCompScore = parseInt(compScore.innerHTML) + 1;
+    //newCompScore.innerHTML = newCompScore.toString();
+    compScore.innerHTML++
     result.innerHTML = combinations[combo];
     gameWinner(compScore.innerHTML, 'Computer');
   } else {
     result.innerHTML = 'That Round Was A Draw.';
     setTimeout(() => {
       result.innerHTML = 'Let\'s Play!'
-    }, 1500);
-  }
+    }, 1000);
+  };
 };
 
 function game(userChoice) {
   const computerChoice = getComputerChoice();
-  if (userChoice + computerChoice === 'rs' || userChoice + computerChoice === 'pr' || userChoice + computerChoice === 'sp') {
-    roundResult('User', userChoice + computerChoice);
-  }
-  if (userChoice + computerChoice === 'rp' || userChoice + computerChoice === 'ps' || userChoice + computerChoice === 'sr') {
-    roundResult('Computer', userChoice + computerChoice);
-  }
-  if (userChoice + computerChoice === 'rr' || userChoice + computerChoice === 'pp' || userChoice + computerChoice === 'ss') {
+
+  let choices = userChoice + computerChoice;
+
+  if (choices === 'rs' || choices === 'pr' || choices === 'sp') {
+    roundResult('User', choices);
+  };
+  if (choices === 'rp' || choices === 'ps' || choices === 'sr') {
+    roundResult('Computer', choices);
+  };
+  if (choices === 'rr' || choices === 'pp' || choices === 'ss') {
     roundResult('Draw');
-  }
+  };
 };
 
-// function main() {
+
 rock.addEventListener('click', function () {
   game('r');
 });
@@ -95,8 +97,7 @@ paper.addEventListener('click', function () {
 scissors.addEventListener('click', function () {
   game('s');
 });
-// };
-// main();
+
 
 
 

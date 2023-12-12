@@ -21,4 +21,12 @@ Functions
   4) Calling
 
 Conditional Language
-  if/else if/ else
+  if/else 
+
+Conditional statements evaluate conditions on the basis of true or false (Boolean values)
+
+Comparison operators
+
+    === and !== — test if one value is identical to, or not identical to, another.
+    < and > — test if one value is less than or greater than another.
+    <= and >= — test if one value is less than or equal to, or greater than or equal to, another.
