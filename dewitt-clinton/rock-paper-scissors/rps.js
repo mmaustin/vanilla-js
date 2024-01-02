@@ -1,13 +1,11 @@
 
 let userScore = document.getElementById("user-score");
 let compScore = document.getElementById("computer-score");
-//const scoreBoard = document.querySelector('.score-board');
 const result = document.querySelector('.result');
 const rock = document.getElementById('r');
 const paper = document.getElementById('p');
 const scissors = document.getElementById('s');
 
-//console.log(typeof +userScore.innerHTML);
 
 const combinations = {
   "pr": "Paper Covers Rock. You Win The Round!",
