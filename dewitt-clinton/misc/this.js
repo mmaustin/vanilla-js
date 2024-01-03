@@ -22,5 +22,9 @@ const ahmad = {
 // console.log(globalThisValue());
 
 
+apple();
 
+const apple = () => {
+  return 'apple';
+};
 
